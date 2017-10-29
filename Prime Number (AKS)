@@ -1,0 +1,32 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+bool isPrime(int n)
+{
+    if(n==2 || n==3)return true;
+    if(n%2==0 || n%3 ==0)return false;
+    int i = 5,w= 2;
+    while((i*i)<=n)
+    {
+        if(n%i==0)return false;
+        i = i+w;
+        w = 6 - w;
+    }
+    return true;
+}
+
+//main
+int main(int argc, char const *argv[])
+{
+    int n;
+    cin>> n;
+    if(isPrime(n))
+    {
+        cout << "yes " << n <<" is prime" << endl;
+    }
+    else
+    {
+        cout << n << " is not a prime" << endl;
+    }
+    return 0;
+}
